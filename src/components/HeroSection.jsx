@@ -133,7 +133,7 @@ export default function HeroSection() {
 
           <div className="mt-3 space-y-1 font-display italic text-headline-sm md:text-headline-md">
             <p>A Day of Radiant Promise</p>
-            <p>Saturday, 6th March 2027</p>
+            {/* <p>Saturday, 6th March 2027</p> */}
           </div>
 
           <motion.div
@@ -142,7 +142,7 @@ export default function HeroSection() {
             transition={{ delay: textDelay + 0.5, duration: 0.6 }}
             className="mt-6 flex justify-center"
           >
-              <img src={`public/assets/arrow-down.png`}/>
+              <img src={`/assets/arrow-down.png`}/>
 
             {/* <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
               <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.2" />
