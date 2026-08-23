@@ -67,7 +67,7 @@ export default function HeroSection() {
         <span className="font-display text-title-md text-[#E4463A]">J&G</span>
       </div>
 
-      <button
+      {/* <button
         type="button"
         aria-label="Open menu"
         className="absolute top-6 right-6 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white md:top-8 md:right-10"
@@ -77,7 +77,7 @@ export default function HeroSection() {
           <path d="M0 6H16" stroke="currentColor" strokeWidth="1.2" />
           <path d="M0 11H16" stroke="currentColor" strokeWidth="1.2" />
         </svg>
-      </button>
+      </button> */}
 
       <div className="relative flex h-full w-full flex-col items-center justify-center px-4 pt-24 pb-8 md:pt-28 md:pb-12">
         <motion.div
