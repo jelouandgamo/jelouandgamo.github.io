@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "eyebrow": "The Wedding of Jelou & Gamo",
+    "headline": "A Day of Radiant Promise"
+  },
+  "cta": {
+    "date": "March 6, 2027",
+    "venue": "The Garden Hive, Antipolo",
+    "invitationLines": [
+      "We would like for you to join us",
+      "as we celebrate our love",
+      "amidst flowers, friends, & family"
+    ],
+    "rsvpButton": "RSVP"
+  }
+}

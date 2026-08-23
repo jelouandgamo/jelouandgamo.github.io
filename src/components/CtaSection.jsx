@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import copy from '../content/copy.json';
 
 const ASSET_PATH = '/assets/cta';
 
@@ -40,7 +41,7 @@ export default function CtaSection({ onRsvpClick }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="font-display italic text-headline-md md:text-display-sm"
         >
-          March 6, 2027
+          {copy.cta.date}
         </motion.p>
 
         <motion.p
@@ -48,7 +49,7 @@ export default function CtaSection({ onRsvpClick }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mt-1 font-display italic text-headline-sm md:text-headline-lg"
         >
-          The Garden Hive, Antipolo
+          {copy.cta.venue}
         </motion.p>
 
         <motion.p
@@ -56,11 +57,12 @@ export default function CtaSection({ onRsvpClick }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mt-6 font-display text-body-lg leading-relaxed text-white/90"
         >
-          We would like for you to join us
-          <br />
-          as we celebrate our love
-          <br />
-          amidst flowers, friends, &amp; family
+          {copy.cta.invitationLines.map((line, index) => (
+            <React.Fragment key={line}>
+              {index > 0 && <br />}
+              {line}
+            </React.Fragment>
+          ))}
         </motion.p>
 
         <motion.button
@@ -73,7 +75,7 @@ export default function CtaSection({ onRsvpClick }) {
           style={{ backgroundImage: `url('${ASSET_PATH}/${encodeURIComponent('Button Group.png')}')` }}
         >
             <span className="mb-4 font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
-              RSVP
+              {copy.cta.rsvpButton}
             </span>
         </motion.button>
       </motion.div>

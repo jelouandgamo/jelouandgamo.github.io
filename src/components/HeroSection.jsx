@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import copy from '../content/copy.json';
 
 const ASSET_PATH = '/assets/hero2';
 
@@ -132,11 +133,11 @@ export default function HeroSection() {
           className="relative z-30 w-full max-w-xl shrink-0 mt-96 text-center text-white md:mt-100"
         >
           <p className="font-display text-label-md tracking-[0.3em] text-white/80">
-            The Wedding of Jelou &amp; Gamo
+            {copy.hero.eyebrow}
           </p>
 
           <div className="mt-3 space-y-1 font-display italic text-headline-sm md:text-headline-md">
-            <p>A Day of Radiant Promise</p>
+            <p>{copy.hero.headline}</p>
             {/* <p>Saturday, 6th March 2027</p> */}
           </div>
 
