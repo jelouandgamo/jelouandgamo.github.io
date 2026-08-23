@@ -1,0 +1,82 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const ASSET_PATH = '/assets/cta';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export default function CtaSection({ onRsvpClick }) {
+  return (
+    <section className="relative w-full overflow-hidden bg-[#7A0C0C] py-24 px-6">
+      <motion.div
+        className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] select-none md:w-[36vw]"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
+      >
+        <motion.img
+          src={`${ASSET_PATH}/${encodeURIComponent('Background Monogram.png')}`}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full select-none"
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
+        />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ staggerChildren: 0.2 }}
+        className="relative z-10 mx-auto flex max-w-xl flex-col items-center text-center text-white"
+      >
+        <motion.p
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="font-display italic text-headline-md md:text-display-sm"
+        >
+          March 6, 2027
+        </motion.p>
+
+        <motion.p
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mt-1 font-display italic text-headline-sm md:text-headline-lg"
+        >
+          The Garden Hive, Antipolo
+        </motion.p>
+
+        <motion.p
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mt-6 font-display text-body-lg leading-relaxed text-white/90"
+        >
+          We would like for you to join us
+          <br />
+          as we celebrate our love
+          <br />
+          amidst flowers, friends, &amp; family
+        </motion.p>
+
+        <motion.button
+          type="button"
+          onClick={onRsvpClick}
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          whileHover={{ scale: 1.05 }}
+          className="relative mt-8 flex h-[74px] w-[252px] items-center justify-center bg-contain bg-center bg-no-repeat transition-transform hover:scale-105"
+          style={{ backgroundImage: `url('${ASSET_PATH}/${encodeURIComponent('Button Group.png')}')` }}
+        >
+          <span className="font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
+            RSVP
+          </span>
+        </motion.button>
+      </motion.div>
+    </section>
+  );
+}
