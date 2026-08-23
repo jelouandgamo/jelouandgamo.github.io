@@ -4,7 +4,7 @@ import copy from '../content/copy.json';
 
 const ASSET_PATH = '/assets/attire';
 
-const FEATURE_ICONS = ['Dresscode Attire.png', 'Dresscode Color.png'];
+const FEATURE_ICONS = ['Dresscode Attire 2.png', 'Dresscode Color 2.png'];
 
 const containerVariants = {
   hidden: {},
