@@ -84,11 +84,11 @@ export default function HeroSection() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative mx-auto"
+          className="absolute mx-auto"
           style={{
-            width: 'min(80vw, 58vh)',
+            width: 'min(150vw, 100vh)',
             aspectRatio: '1116 / 1000',
-            overflow: 'hidden',
+            // overflow: 'hidden',
           }}
         >
           {/* The shared 3840x2160 canvas has huge transparent padding around the
@@ -125,7 +125,7 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: textDelay, duration: 0.6 }}
           style={{ y: foregroundY }}
-          className="relative z-30 w-full max-w-xl shrink-0 -mt-10 text-center text-white sm:-mt-14 md:-mt-20"
+          className="relative z-30 w-full max-w-xl shrink-0 mt-96 text-center text-white md:mt-100"
         >
           <p className="font-display text-label-md tracking-[0.3em] text-white/80">
             The Wedding of Jelou &amp; Gamo
