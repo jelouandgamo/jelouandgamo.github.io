@@ -13,6 +13,21 @@
     ],
     "rsvpButton": "RSVP"
   },
+  "attire": {
+    "subtitle": "Dress Code",
+    "title": "Romantic Sunset Garden",
+    "intro": "We shared some of our most precious moments in the warm embrace of sunsets. We would love for you to dress in the warm colors we fell in love in.",
+    "features": [
+      {
+        "title": "Dressy Garden Casual",
+        "description": "Strike a balance between polish and relaxed with long dresses, flowing fabrics, soft and elegant silhouettes."
+      },
+      {
+        "title": "Wear sunset colors",
+        "description": "Channel the golden hour glow with warm and vibrant colors, or slip into the comfortable elegance of floral motifs."
+      }
+    ]
+  },
   "program": {
     "subtitle": "The Schedule",
     "title": "Program Flow",
@@ -31,6 +46,40 @@
         "time": "7:00 PM",
         "title": "Party",
         "description": "Lorem ipsum"
+      }
+    ]
+  },
+  "faq": {
+    "subtitle": "FAQ",
+    "title": "Common Questions",
+    "questions": [
+      {
+        "question": "Can I cancel my RSVP?",
+        "answer": "Yes, but please inform us right away so we can fill up the seats."
+      },
+      {
+        "question": "Are children welcome?",
+        "answer": "The celebration will be adults-only with a few kids invited from our immediate families. We thank you for understanding."
+      },
+      {
+        "question": "What time should I arrive?",
+        "answer": "The program will start 4:00PM so please arrive a little early to get settled and enjoy the ceremony."
+      },
+      {
+        "question": "Can I bring a plus one?",
+        "answer": "We want to keep our wedding intimate so only guests formally invited will be accommodated."
+      },
+      {
+        "question": "Is there parking available?",
+        "answer": "The venue has provisions for 50 parking slots."
+      },
+      {
+        "question": "Where can i stay?",
+        "answer": "The Citywalk Suites is right next to the venue."
+      },
+      {
+        "question": "Regarding gifts?",
+        "answer": "Your presence at the wedding is the greatest gift of all. Should you wish to give a gift, a monetary contribution towards our future together would be appreciated."
       }
     ]
   }
