@@ -12,5 +12,26 @@
       "amidst flowers, friends, & family"
     ],
     "rsvpButton": "RSVP"
+  },
+  "program": {
+    "subtitle": "The Schedule",
+    "title": "Program Flow",
+    "schedule": [
+      {
+        "time": "4:00 PM",
+        "title": "Cocktails & Ceremony",
+        "description": "Be welcomed with refreshments and booth activities followed by an intimate exchange of vows in the garden."
+      },
+      {
+        "time": "5:30 PM",
+        "title": "Dinner & Program",
+        "description": "Settle down and enjoy dinner, & games at the Hall."
+      },
+      {
+        "time": "7:00 PM",
+        "title": "Party",
+        "description": "Lorem ipsum"
+      }
+    ]
   }
 }
