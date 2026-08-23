@@ -49,6 +49,35 @@
       }
     ]
   },
+  "rsvp": {
+    "subtitle": "RSVP",
+    "search": {
+      "title": "Find Your Invitation",
+      "intro": "Enter your name as it appears on your invitation to find your party.",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "button": "Search Invitation",
+      "notFoundTitle": "We couldn't find your invitation",
+      "notFoundMessage": "Please double-check the spelling, or reach out to the couple directly and we'll sort it out."
+    },
+    "party": {
+      "attendingLabel": "Attending",
+      "decliningLabel": "Regretfully Declines",
+      "gamesLabel": "Will join reception games",
+      "dietaryLabel": "Dietary restrictions",
+      "dietaryPlaceholder": "Allergies, preferences, etc.",
+      "songTitle": "Song Suggestions",
+      "songIntro": "Got any song suggestions for the dancefloor?",
+      "songPlaceholder": "Add a track or artist...",
+      "submitButton": "Submit RSVP"
+    },
+    "thankYou": {
+      "title": "Thank You",
+      "attendingMessage": "We can't wait to celebrate with you. See you on the dance floor!",
+      "decliningMessage": "You'll be missed, but we appreciate you letting us know.",
+      "editButton": "Edit RSVP"
+    }
+  },
   "faq": {
     "subtitle": "FAQ",
     "title": "Common Questions",
