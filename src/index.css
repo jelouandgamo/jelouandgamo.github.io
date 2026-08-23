@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Map our typography tokens to utility classes */
+@layer components {
+  .font-display {
+    font-family: "Playfair Display", serif;
+  }
+
+  .text-display-lg {
+    font-size: 3.563rem;
+    line-height: 4rem;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+}
