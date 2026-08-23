@@ -10,7 +10,7 @@ const fadeUp = {
 
 export default function CtaSection({ onRsvpClick }) {
   return (
-    <section className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#7A0C0C] px-6">
+    <section className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#7A0C0C] px-6 snap-start">
       <motion.div
         className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] mt-60 select-none md:w-[80vw] md:mt-16"
         initial={{ opacity: 0 }}

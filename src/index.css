@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 /* Map our typography tokens to utility classes */
 @layer components {
   .font-display {

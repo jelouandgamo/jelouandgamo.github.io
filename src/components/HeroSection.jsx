@@ -58,10 +58,14 @@ export default function HeroSection() {
   const layersY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const foregroundY = useTransform(scrollYProgress, [0, 1], [0, -180]);
 
+  const scrollToNextSection = () => {
+    sectionRef.current?.nextElementSibling?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[100dvh] overflow-hidden bg-[#1A302B]"
+      className="relative w-full h-[100dvh] overflow-hidden bg-[#1A302B] snap-start"
     >
       <div className="absolute top-6 left-6 z-20 md:top-8 md:left-10">
         <span className="font-display text-title-md text-[#E4463A]">J&G</span>
@@ -142,7 +146,13 @@ export default function HeroSection() {
             transition={{ delay: textDelay + 0.5, duration: 0.6 }}
             className="mt-6 flex justify-center"
           >
-              <img src={`/assets/arrow-down.png`}/>
+              <button
+                type="button"
+                onClick={scrollToNextSection}
+                aria-label="Scroll to next section"
+              >
+                <img src={`/assets/arrow-down.png`} alt="" />
+              </button>
 
             {/* <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
               <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.2" />
