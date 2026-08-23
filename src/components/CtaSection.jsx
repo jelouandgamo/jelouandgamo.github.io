@@ -10,9 +10,9 @@ const fadeUp = {
 
 export default function CtaSection({ onRsvpClick }) {
   return (
-    <section className="relative w-full overflow-hidden bg-[#7A0C0C] py-24 px-6">
+    <section className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#7A0C0C] px-6">
       <motion.div
-        className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] select-none md:w-[36vw]"
+        className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] mt-60 select-none md:w-[80vw] md:mt-16"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -22,7 +22,7 @@ export default function CtaSection({ onRsvpClick }) {
           src={`${ASSET_PATH}/${encodeURIComponent('Background Monogram.png')}`}
           alt=""
           aria-hidden="true"
-          className="h-full w-full select-none"
+          className="w-full select-none"
           animate={{ y: [0, -12, 0] }}
           transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
         />
@@ -72,9 +72,9 @@ export default function CtaSection({ onRsvpClick }) {
           className="relative mt-8 flex h-[74px] w-[252px] items-center justify-center bg-contain bg-center bg-no-repeat transition-transform hover:scale-105"
           style={{ backgroundImage: `url('${ASSET_PATH}/${encodeURIComponent('Button Group.png')}')` }}
         >
-          <span className="font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
-            RSVP
-          </span>
+            <span className="mb-4 font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
+              RSVP
+            </span>
         </motion.button>
       </motion.div>
     </section>
