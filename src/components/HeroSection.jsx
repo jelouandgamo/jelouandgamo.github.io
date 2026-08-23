@@ -142,9 +142,11 @@ export default function HeroSection() {
             transition={{ delay: textDelay + 0.5, duration: 0.6 }}
             className="mt-6 flex justify-center"
           >
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
+              <img src={`public/assets/arrow-down.png`}/>
+
+            {/* <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
               <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.2" />
-            </svg>
+            </svg> */}
           </motion.div>
         </motion.div>
       </div>
