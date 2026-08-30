@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import copy from '../content/copy.json';
+import DefaultButton from './DefaultButton.jsx';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -421,7 +422,7 @@ function CheckmarkIcon() {
   );
 }
 
-function ThankYouStep({ guests, onEdit }) {
+function ThankYouStep({ guests, onEdit, onBack }) {
   const t = copy.rsvp.thankYou;
   const attendingCount = guests.filter((g) => g.is_attending).length;
   const anyAttending = attendingCount > 0;
@@ -453,9 +454,11 @@ function ThankYouStep({ guests, onEdit }) {
           {attendingCount} of {guests.length} guest{guests.length === 1 ? '' : 's'} attending
         </p>
 
+        <DefaultButton label={t.backButton} onClick={onBack} className="mt-8" />
+
         <button
           onClick={onEdit}
-          className="mt-8 font-display text-label-md uppercase tracking-[0.2em] text-[#A3542B] underline-offset-4 transition-colors hover:underline"
+          className="mt-4 font-display text-label-md uppercase tracking-[0.2em] text-[#A3542B] underline-offset-4 transition-colors hover:underline"
         >
           {t.editButton}
         </button>
@@ -467,6 +470,7 @@ function ThankYouStep({ guests, onEdit }) {
 // --- Page --------------------------------------------------------------------
 
 export default function RsvpPage() {
+  const navigate = useNavigate();
   const [step, setStep] = useState('search');
   const [party, setParty] = useState(null);
   const [guests, setGuests] = useState([]);
@@ -484,14 +488,16 @@ export default function RsvpPage() {
     setStep('thankyou');
   }
 
+  function handleBackToCta() {
+    navigate('/');
+    setTimeout(() => {
+      document.getElementById('venue')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
   return (
     <section className="relative flex min-h-screen w-full flex-col items-center justify-center bg-[#F9F8F3] px-4 py-16 md:px-8">
-      <Link
-        to="/"
-        className="absolute top-6 left-6 z-20 font-display text-title-md text-[#E4463A] md:top-8 md:left-10"
-      >
-        J&amp;G
-      </Link>
+
 
       <AnimatePresence mode="wait">
         {step === 'search' && <SearchStep key="search" onFound={handleFound} />}
@@ -499,7 +505,12 @@ export default function RsvpPage() {
           <PartyStep key="party" party={party} guests={guests} onSubmitted={handleSubmitted} />
         )}
         {step === 'thankyou' && (
-          <ThankYouStep key="thankyou" guests={guests} onEdit={() => setStep('party')} />
+          <ThankYouStep
+            key="thankyou"
+            guests={guests}
+            onEdit={() => setStep('party')}
+            onBack={handleBackToCta}
+          />
         )}
       </AnimatePresence>
     </section>

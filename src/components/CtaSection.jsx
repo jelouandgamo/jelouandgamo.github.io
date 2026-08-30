@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import copy from '../content/copy.json';
+import DefaultButton from './DefaultButton.jsx';
 
 const ASSET_PATH = '/assets/cta';
 
@@ -65,19 +66,13 @@ export default function CtaSection({ onRsvpClick }) {
           ))}
         </motion.p>
 
-        <motion.button
-          type="button"
+        <DefaultButton
+          label={copy.cta.rsvpButton}
           onClick={onRsvpClick}
           variants={fadeUp}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          whileHover={{ scale: 1.05 }}
-          className="relative mt-8 flex h-[74px] w-[252px] items-center justify-center bg-contain bg-center bg-no-repeat transition-transform hover:scale-105"
-          style={{ backgroundImage: `url('${ASSET_PATH}/${encodeURIComponent('Button Group.png')}')` }}
-        >
-            <span className="mb-4 font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
-              {copy.cta.rsvpButton}
-            </span>
-        </motion.button>
+          className="mt-8"
+        />
       </motion.div>
     </section>
   );

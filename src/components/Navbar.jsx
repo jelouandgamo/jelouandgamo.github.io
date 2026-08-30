@@ -6,6 +6,7 @@ import {
   useMotionValueEvent,
 } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
+import DefaultButton from './DefaultButton.jsx';
 
 const ASSET_PATH = '/assets/nav';
 const OVERLAY_BG = '#112522';
@@ -204,18 +205,11 @@ export default function Navbar() {
                 </p>
               </motion.div>
 
-              <motion.button
+              <DefaultButton
                 variants={itemVariants}
-                type="button"
+                label="RSVP"
                 onClick={goToRsvp}
-                whileHover={{ scale: 1.05 }}
-                className="relative flex h-[74px] w-[252px] items-center justify-center bg-contain bg-center bg-no-repeat transition-transform hover:scale-105"
-                style={{ backgroundImage: `url('/assets/cta/${encodeURIComponent('Button Group.png')}')` }}
-              >
-                <span className="mb-4 font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
-                  RSVP
-                </span>
-              </motion.button>
+              />
 
               <motion.ul
                 variants={listVariants}

@@ -78,7 +78,8 @@
       "title": "Thank You",
       "attendingMessage": "We can't wait to celebrate with you. See you on the dance floor!",
       "decliningMessage": "You'll be missed, but we appreciate you letting us know.",
-      "editButton": "Edit RSVP"
+      "editButton": "Edit RSVP",
+      "backButton": "Back to Invitation"
     }
   },
   "faq": {
