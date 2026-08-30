@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import copy from '../content/copy.json';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function isValidEmail(email) {
+  return !email || EMAIL_RE.test(email.trim());
+}
 
 const stepVariants = {
   initial: { opacity: 0, x: 20 },
@@ -174,7 +180,7 @@ function SearchStep({ onFound }) {
 
 // --- Step 2: party RSVP form -----------------------------------------------
 
-function GuestCard({ guest, onChange }) {
+function GuestCard({ guest, hasSavedEmail, onChange }) {
   const t = copy.rsvp.party;
 
   function setAttending(value) {
@@ -239,10 +245,14 @@ function GuestCard({ guest, onChange }) {
                 type="email"
                 value={guest.email || ''}
                 onChange={(e) => onChange(guest.id, { email: e.target.value })}
-                placeholder={t.emailPlaceholder}
+                placeholder={hasSavedEmail ? t.emailPlaceholderSubscribed : t.emailPlaceholder}
                 className="w-full rounded-xl border border-neutral-200 bg-[#F9F8F3] px-4 py-3 font-display text-body-lg text-neutral-900 outline-none transition-colors focus:border-[#A3542B]"
               />
-              <p className="mt-2 font-display text-body-md text-neutral-400">{t.emailHint}</p>
+              {isValidEmail(guest.email) ? (
+                <p className="mt-2 font-display text-body-md text-neutral-400">{t.emailHint}</p>
+              ) : (
+                <p className="mt-2 font-display text-body-md text-red-600">{t.emailInvalidMessage}</p>
+              )}
             </div>
           </motion.div>
         )}
@@ -253,7 +263,8 @@ function GuestCard({ guest, onChange }) {
 
 function PartyStep({ party, guests, onSubmitted }) {
   const t = copy.rsvp.party;
-  const [localGuests, setLocalGuests] = useState(guests);
+  const savedEmails = useMemo(() => Object.fromEntries(guests.map((g) => [g.id, g.email || ''])), [guests]);
+  const [localGuests, setLocalGuests] = useState(() => guests.map((g) => ({ ...g, email: '' })));
   const [songSuggestions, setSongSuggestions] = useState(party.song_suggestions || '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -262,10 +273,19 @@ function PartyStep({ party, guests, onSubmitted }) {
     setLocalGuests((prev) => prev.map((g) => (g.id === id ? { ...g, ...fields } : g)));
   }
 
+  function resolveEmail(g) {
+    if (g.is_attending !== true) return null;
+    const typed = (g.email || '').trim();
+    return typed || savedEmails[g.id] || null;
+  }
+
   const allAnswered = localGuests.every((g) => g.is_attending === true || g.is_attending === false);
+  const allEmailsValid = localGuests.every((g) => isValidEmail(g.email));
+  const canSubmit = allAnswered && allEmailsValid;
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!canSubmit) return;
     setIsSubmitting(true);
     setErrorMessage('');
 
@@ -276,7 +296,7 @@ function PartyStep({ party, guests, onSubmitted }) {
           .update({
             is_attending: g.is_attending,
             will_join_games: g.will_join_games,
-            email: g.email || null,
+            email: resolveEmail(g),
           })
           .eq('id', g.id)
       );
@@ -290,7 +310,8 @@ function PartyStep({ party, guests, onSubmitted }) {
       const failed = results.find((r) => r.error);
       if (failed) throw failed.error;
 
-      onSubmitted({ guests: localGuests, songSuggestions });
+      const finalGuests = localGuests.map((g) => ({ ...g, email: resolveEmail(g) }));
+      onSubmitted({ guests: finalGuests, songSuggestions });
     } catch (err) {
       setErrorMessage('We could not save your RSVP. Please try again.');
     } finally {
@@ -319,7 +340,12 @@ function PartyStep({ party, guests, onSubmitted }) {
       <form onSubmit={handleSubmit} className="mt-10 rounded-3xl bg-white p-8 shadow-xl md:p-10">
         <div>
           {localGuests.map((guest) => (
-            <GuestCard key={guest.id} guest={guest} onChange={updateGuest} />
+            <GuestCard
+              key={guest.id}
+              guest={guest}
+              hasSavedEmail={Boolean(savedEmails[guest.id])}
+              onChange={updateGuest}
+            />
           ))}
         </div>
 
@@ -336,7 +362,7 @@ function PartyStep({ party, guests, onSubmitted }) {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <PrimaryButton type="submit" loading={isSubmitting} disabled={!allAnswered}>
+          <PrimaryButton type="submit" loading={isSubmitting} disabled={!canSubmit}>
             {t.submitButton}
           </PrimaryButton>
         </div>
@@ -344,6 +370,12 @@ function PartyStep({ party, guests, onSubmitted }) {
         {!allAnswered && (
           <p className="mt-4 text-center font-display text-body-md text-neutral-400">
             Please respond for every guest before submitting.
+          </p>
+        )}
+
+        {allAnswered && !allEmailsValid && (
+          <p className="mt-4 text-center font-display text-body-md text-neutral-400">
+            Please fix the invalid email above before submitting.
           </p>
         )}
 
