@@ -5,6 +5,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from 'framer-motion';
+import copy from '../content/copy.json';
 import { useLocation, useNavigate } from 'react-router-dom';
 import DefaultButton from './DefaultButton.jsx';
 
@@ -201,7 +202,7 @@ export default function Navbar() {
                   JELOU &amp; GAMO
                 </p>
                 <p className="font-display text-[12px] font-normal uppercase leading-normal tracking-[6px]">
-                  SAVE THE DATE
+                  {copy.cta.date}
                 </p>
               </motion.div>
 
