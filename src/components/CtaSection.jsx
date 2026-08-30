@@ -14,20 +14,20 @@ export default function CtaSection({ onRsvpClick }) {
   return (
     <section id="venue" className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#7A0C0C] px-6 snap-start">
       <motion.div
-        className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] mt-60 select-none md:w-[80vw] md:mt-16"
+        className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] select-none md:w-[80vw]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
       >
-        <motion.img
+        <div className="flex h-[100dvh] items-center justify-center">
+        <img
           src={`${ASSET_PATH}/${encodeURIComponent('Background Monogram.png')}`}
           alt=""
           aria-hidden="true"
-          className="w-full select-none"
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
+          className="w-full select-none "
         />
+        </div>
       </motion.div>
 
       <motion.div
