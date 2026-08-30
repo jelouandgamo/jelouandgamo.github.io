@@ -5,6 +5,7 @@ import ProgramFlowSection from './components/ProgramFlowSection.jsx';
 import CtaSection from './components/CtaSection.jsx';
 import AttireSection from './components/AttireSection.jsx';
 import FaqSection from './components/FaqSection.jsx';
+import GallerySection from './components/GallerySection.jsx';
 import RsvpPage from './components/RsvpPage.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
@@ -19,6 +20,7 @@ function HomePage() {
       <ProgramFlowSection />
       <AttireSection />
       <FaqSection />
+      <GallerySection />
       <Footer />
     </main>
   );

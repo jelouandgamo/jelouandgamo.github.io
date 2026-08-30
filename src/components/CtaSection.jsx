@@ -19,6 +19,11 @@ export default function CtaSection({ onRsvpClick }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
+        style={{
+            width: 'min(150vw, 100vh)',
+            // aspectRatio: '1116 / 1000',
+            // overflow: 'hidden',
+          }}
       >
         <div className="flex h-[100dvh] items-center justify-center">
         <img

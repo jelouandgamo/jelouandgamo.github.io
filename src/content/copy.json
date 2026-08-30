@@ -85,6 +85,20 @@
       "backButton": "Back to Invitation"
     }
   },
+  "gallery": {
+    "subtitle": "Our Story in Photos",
+    "title": "Moments Together",
+    "photos": [
+      "wedding-gallery/photo-01",
+      "wedding-gallery/photo-02",
+      "wedding-gallery/photo-03",
+      "wedding-gallery/photo-04",
+      "wedding-gallery/photo-05",
+      "wedding-gallery/photo-06",
+      "wedding-gallery/photo-07",
+      "wedding-gallery/photo-08"
+    ]
+  },
   "faq": {
     "subtitle": "FAQ",
     "title": "Common Questions",
