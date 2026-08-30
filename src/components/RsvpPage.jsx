@@ -181,7 +181,7 @@ function GuestCard({ guest, onChange }) {
     onChange(guest.id, {
       is_attending: value,
       will_join_games: value ? guest.will_join_games : false,
-      dietary_restrictions: value ? guest.dietary_restrictions : '',
+      email: value ? guest.email : '',
     });
   }
 
@@ -234,14 +234,15 @@ function GuestCard({ guest, onChange }) {
             </label>
 
             <div className="mt-4">
-              <FieldLabel>{t.dietaryLabel}</FieldLabel>
+              <FieldLabel>{t.emailLabel}</FieldLabel>
               <input
-                type="text"
-                value={guest.dietary_restrictions || ''}
-                onChange={(e) => onChange(guest.id, { dietary_restrictions: e.target.value })}
-                placeholder={t.dietaryPlaceholder}
+                type="email"
+                value={guest.email || ''}
+                onChange={(e) => onChange(guest.id, { email: e.target.value })}
+                placeholder={t.emailPlaceholder}
                 className="w-full rounded-xl border border-neutral-200 bg-[#F9F8F3] px-4 py-3 font-display text-body-lg text-neutral-900 outline-none transition-colors focus:border-[#A3542B]"
               />
+              <p className="mt-2 font-display text-body-md text-neutral-400">{t.emailHint}</p>
             </div>
           </motion.div>
         )}
@@ -275,7 +276,7 @@ function PartyStep({ party, guests, onSubmitted }) {
           .update({
             is_attending: g.is_attending,
             will_join_games: g.will_join_games,
-            dietary_restrictions: g.dietary_restrictions || null,
+            email: g.email || null,
           })
           .eq('id', g.id)
       );

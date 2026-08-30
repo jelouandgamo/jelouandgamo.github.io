@@ -23,9 +23,24 @@ create table if not exists guests (
   last_name text not null,
   is_attending boolean default null,
   will_join_games boolean not null default false,
-  dietary_restrictions text,
+  email text,
   updated_at timestamptz not null default now()
 );
+
+-- If this schema already ran against your project before the dietary field
+-- was replaced with email, this brings an existing table up to date.
+do $$
+begin
+  if exists (
+    select 1 from information_schema.columns
+    where table_name = 'guests' and column_name = 'dietary_restrictions'
+  ) and not exists (
+    select 1 from information_schema.columns
+    where table_name = 'guests' and column_name = 'email'
+  ) then
+    alter table guests rename column dietary_restrictions to email;
+  end if;
+end $$;
 
 create index if not exists guests_party_id_idx on guests (party_id);
 create index if not exists guests_name_idx on guests (last_name, first_name);
@@ -105,4 +120,4 @@ grant select on wedding_parties to anon;
 grant select on guests to anon;
 
 grant update (song_suggestions) on wedding_parties to anon;
-grant update (is_attending, will_join_games, dietary_restrictions) on guests to anon;
+grant update (is_attending, will_join_games, email) on guests to anon;
