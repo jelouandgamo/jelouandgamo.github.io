@@ -56,7 +56,7 @@ function FeatureList() {
 
 export default function AttireSection() {
   return (
-    <section className="w-full bg-[#EFECE1] px-6 py-16 snap-start md:h-[100dvh] md:overflow-hidden md:py-14">
+    <section id="attire" className="w-full bg-[#EFECE1] px-6 py-16 snap-start md:h-[100dvh] md:overflow-hidden md:py-14">
       <div className="mx-auto grid w-full max-w-6xl gap-10 md:h-full md:grid-cols-2 md:gap-16">
         <motion.div
           initial="hidden"

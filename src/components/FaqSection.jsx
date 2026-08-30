@@ -21,7 +21,7 @@ const cardVariants = {
 
 export default function FaqSection() {
   return (
-    <section className="w-full bg-[#122B27] px-4 py-20 snap-start md:px-8">
+    <section id="faq" className="w-full bg-[#122B27] px-4 py-20 snap-start md:px-8">
       <div className="mx-auto w-full max-w-3xl">
         <motion.div
           initial="hidden"

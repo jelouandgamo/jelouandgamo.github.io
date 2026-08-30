@@ -28,7 +28,7 @@ const itemVariants = {
 
 export default function ProgramFlowSection() {
   return (
-    <section className="flex min-h-[100dvh] w-full flex-col justify-center bg-white px-6 py-20 snap-start md:py-28">
+    <section id="program" className="flex min-h-[100dvh] w-full flex-col justify-center bg-white px-6 py-20 snap-start md:py-28">
       <div className="mx-auto w-full max-w-2xl">
         <motion.div
           initial="hidden"

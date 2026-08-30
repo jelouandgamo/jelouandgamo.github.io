@@ -66,11 +66,12 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
+      id="home"
       className="relative w-full h-[100dvh] overflow-hidden bg-[#1A302B] snap-start"
     >
-      <div className="absolute top-6 left-6 z-20 md:top-8 md:left-10">
+      {/* <div className="absolute top-6 left-6 z-20 md:top-8 md:left-10">
         <span className="font-display text-title-md text-[#E4463A]">J&G</span>
-      </div>
+      </div> */}
 
       {/* <button
         type="button"

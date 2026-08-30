@@ -6,6 +6,7 @@ import CtaSection from './components/CtaSection.jsx';
 import AttireSection from './components/AttireSection.jsx';
 import FaqSection from './components/FaqSection.jsx';
 import RsvpPage from './components/RsvpPage.jsx';
+import Navbar from './components/Navbar.jsx';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ function HomePage() {
 export default function App() {
   return (
     <HashRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/rsvp" element={<RsvpPage />} />
