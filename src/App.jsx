@@ -7,6 +7,7 @@ import AttireSection from './components/AttireSection.jsx';
 import FaqSection from './components/FaqSection.jsx';
 import RsvpPage from './components/RsvpPage.jsx';
 import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function HomePage() {
       <ProgramFlowSection />
       <AttireSection />
       <FaqSection />
+      <Footer />
     </main>
   );
 }
