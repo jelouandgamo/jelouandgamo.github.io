@@ -1,7 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
-const ASSET_PATH = '/assets/nav';
 
 const fadeUp = {
   initial: { opacity: 0, y: 15 },
