@@ -117,9 +117,9 @@ function SearchStep({ onFound }) {
       className="w-full max-w-md"
     >
       <div className="text-center">
-        <p className="font-display text-label-md uppercase tracking-[0.3em] text-[#A3542B]">{copy.rsvp.subtitle}</p>
+        <p className="font-sans text-label-md text-[#A3542B]">{copy.rsvp.subtitle}</p>
         <h1 className="mt-3 font-display italic text-display-sm text-neutral-900 md:text-display-md">{t.title}</h1>
-        <p className="mt-4 font-display text-body-lg text-neutral-600">{t.intro}</p>
+        <p className="mt-4 font-sans text-body-lg text-neutral-600">{t.intro}</p>
       </div>
 
       <form
@@ -165,8 +165,8 @@ function SearchStep({ onFound }) {
               exit={{ opacity: 0, y: 10 }}
               className="mt-8 rounded-2xl bg-[#F9F0EA] p-5 text-center"
             >
-              <p className="font-display text-title-sm font-semibold text-[#A3542B]">{t.notFoundTitle}</p>
-              <p className="mt-2 font-display text-body-md text-neutral-600">{t.notFoundMessage}</p>
+              <p className="font-display text-title-sm text-[#A3542B]">{t.notFoundTitle}</p>
+              <p className="mt-2 font-sans text-body-md text-neutral-600">{t.notFoundMessage}</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -330,7 +330,7 @@ function PartyStep({ party, guests, onSubmitted }) {
       className="w-full max-w-xl"
     >
       <div className="text-center">
-        <p className="font-display text-label-md uppercase tracking-[0.3em] text-[#A3542B]">
+        <p className="font-sans text-label-md text-[#A3542B]">
           Party of {localGuests.length}
         </p>
         <h1 className="mt-3 font-display italic text-display-sm text-neutral-900 md:text-display-md">
@@ -447,7 +447,7 @@ function ThankYouStep({ guests, onEdit, onBack }) {
         </motion.div>
 
         <h1 className="mt-6 font-display italic text-display-sm text-neutral-900">{t.title}</h1>
-        <p className="mt-4 font-display text-body-lg text-neutral-600">
+        <p className="mt-4 font-sans text-body-lg text-neutral-600">
           {anyAttending ? t.attendingMessage : t.decliningMessage}
         </p>
         <p className="mt-2 font-display text-body-md text-neutral-400">

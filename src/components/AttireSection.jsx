@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import copy from '../content/copy.json';
 
 const ASSET_PATH = '/assets/attire';
+const ICON_PATH = '/assets/Icons';
 
-const FEATURE_ICONS = ['Dresscode Attire 2.png', 'Dresscode Color 2.png'];
+const FEATURE_ICONS = ['dress icon.png', 'sunset icon.png'];
 
 const containerVariants = {
   hidden: {},
@@ -36,7 +37,7 @@ function FeatureList() {
         <motion.div key={feature.title} variants={fadeUpVariants} className="flex items-start gap-5">
           <span className="flex h-14 w-14 flex-none items-center justify-center rounded-full bg-white shadow-sm">
             <img
-              src={`${ASSET_PATH}/${encodeURIComponent(FEATURE_ICONS[index])}`}
+              src={`${ICON_PATH}/${encodeURIComponent(FEATURE_ICONS[index])}`}
               alt=""
               aria-hidden="true"
               className="h-6 w-6 select-none"
@@ -44,7 +45,7 @@ function FeatureList() {
           </span>
           <div>
             <h3 className="font-display text-title-lg text-neutral-900">{feature.title}</h3>
-            <p className="mt-1 font-display text-body-lg leading-relaxed text-neutral-600">
+            <p className="mt-1 font-sans text-body-lg text-neutral-600">
               {feature.description}
             </p>
           </div>
@@ -67,7 +68,7 @@ export default function AttireSection() {
         >
           <motion.p
             variants={fadeUpVariants}
-            className="font-display text-label-md font-bold uppercase tracking-[0.3em] text-neutral-900"
+            className="font-sans text-label-md text-neutral-900"
           >
             {copy.attire.subtitle}
           </motion.p>
@@ -79,7 +80,7 @@ export default function AttireSection() {
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
-            className="mt-6 font-display text-body-lg leading-relaxed text-neutral-600"
+            className="mt-6 font-sans text-body-lg text-neutral-600"
           >
             {copy.attire.intro}
           </motion.p>

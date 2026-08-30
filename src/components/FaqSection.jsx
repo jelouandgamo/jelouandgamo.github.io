@@ -30,7 +30,7 @@ export default function FaqSection() {
           variants={headerVariants}
           className="text-center"
         >
-          <p className="font-display text-label-md uppercase tracking-[0.3em] text-[#E5DBC9]">
+          <p className="font-sans text-label-md text-[#E5DBC9]">
             {copy.faq.subtitle}
           </p>
           <h2 className="mt-2 font-display italic text-display-sm text-[#E5DBC9] md:text-display-md">

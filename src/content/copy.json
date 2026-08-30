@@ -41,13 +41,13 @@
       {
         "time": "5:30 PM",
         "title": "Dinner & Program",
-        "description": "Settle down and enjoy dinner, & games at the Hall.",
+        "description": "Move to the Hall for a seated dinner, heartfelt toasts, and a few games along the way.",
         "icon": "dinner icon.png"
       },
       {
         "time": "7:00 PM",
         "title": "Party",
-        "description": "Lorem ipsum",
+        "description": "Hit the dance floor and celebrate with us into the night with music, drinks, and good company.",
         "icon": "party icon.png"
       }
     ]
