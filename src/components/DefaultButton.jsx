@@ -12,7 +12,7 @@ export default function DefaultButton({ label, className = '', ...props }) {
       style={{ backgroundImage: `url('${ASSET_PATH}/${encodeURIComponent('Button Group.png')}')` }}
       {...props}
     >
-      <span className="mb-4 font-display text-title-sm tracking-[0.2em] text-[#1A302B]">
+      <span className="mb-4 font-sans text-label-md text-[#173133]">
         {label}
       </span>
     </motion.button>

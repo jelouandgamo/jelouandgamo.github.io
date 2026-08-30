@@ -35,17 +35,20 @@
       {
         "time": "4:00 PM",
         "title": "Cocktails & Ceremony",
-        "description": "Be welcomed with refreshments and booth activities followed by an intimate exchange of vows in the garden."
+        "description": "Be welcomed with refreshments and booth activities followed by an intimate exchange of vows in the garden.",
+        "icon": "cocktail icon.png"
       },
       {
         "time": "5:30 PM",
         "title": "Dinner & Program",
-        "description": "Settle down and enjoy dinner, & games at the Hall."
+        "description": "Settle down and enjoy dinner, & games at the Hall.",
+        "icon": "dinner icon.png"
       },
       {
         "time": "7:00 PM",
         "title": "Party",
-        "description": "Lorem ipsum"
+        "description": "Lorem ipsum",
+        "icon": "party icon.png"
       }
     ]
   },

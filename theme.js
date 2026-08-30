@@ -20,7 +20,7 @@ export const typographyTheme = {
     'body-md': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0', fontWeight: '400' }],
     'body-sm': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.075rem', fontWeight: '400' }],
     'label-lg': ['0.875rem', { lineHeight: '0.3rem', letterSpacing: '1rem', fontWeight: '500' }],
-    'label-md': ['0.75rem', { lineHeight: '1rem', letterSpacing: '1rem', fontWeight: '400' }],
+    'label-md': ['0.875rem', { lineHeight: '1rem', letterSpacing: '0.7px', fontWeight: '700' }],
     'label-sm': ['0.625rem', { lineHeight: '1rem', letterSpacing: '1.25rem', fontWeight: '400' }],
   },
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import copy from '../content/copy.json';
 
-const ASSET_PATH = '/assets/program';
+const ICON_PATH = '/assets/Icons';
 
 const headerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -38,10 +38,10 @@ export default function ProgramFlowSection() {
           variants={headerVariants}
           className="text-left md:text-center"
         >
-          <p className="font-display text-label-md uppercase tracking-[0.3em] text-[#A3542B]">
+          <p className="font-sans text-label-md text-[#9A4600]">
             {copy.program.subtitle}
           </p>
-          <h2 className="mt-2 font-display italic text-display-sm text-neutral-900 md:text-display-md">
+          <h2 className="mt-2 font-display italic text-display-sm text-[#1B1D0E]">
             {copy.program.title}
           </h2>
         </motion.div>
@@ -72,21 +72,23 @@ export default function ProgramFlowSection() {
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 className="relative flex gap-6"
               >
-                <img
-                  src={`${ASSET_PATH}/${encodeURIComponent('Program FlowPlaceholder.png')}`}
-                  alt=""
-                  aria-hidden="true"
-                  className="relative z-10 h-12 w-12 flex-none select-none"
-                />
+                <span className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full border border-[#DAC2B6] bg-[#FBFBE2]">
+                  <img
+                    src={`${ICON_PATH}/${encodeURIComponent(event.icon)}`}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-6 w-6 select-none"
+                  />
+                </span>
 
                 <div className="pt-1">
-                  <p className="font-display text-label-md tracking-[0.15em] text-[#A3542B]">
+                  <p className="font-sans text-body-sm text-[#782313]">
                     {event.time}
                   </p>
-                  <h3 className="mt-1 font-display text-title-sm text-neutral-900">
+                  <h3 className="mt-1 font-display text-title-sm text-[#1B1D0E]">
                     {event.title}
                   </h3>
-                  <p className="mt-1 font-display text-body-lg leading-relaxed text-neutral-600">
+                  <p className="mt-1 font-sans text-body-lg text-[#54433A]">
                     {event.description}
                   </p>
                 </div>

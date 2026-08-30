@@ -56,7 +56,7 @@ export default function CtaSection({ onRsvpClick }) {
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mt-6 font-display text-body-lg leading-relaxed text-white/90"
+          className="mt-6 font-sans text-body-lg text-white"
         >
           {copy.cta.invitationLines.map((line, index) => (
             <React.Fragment key={line}>
