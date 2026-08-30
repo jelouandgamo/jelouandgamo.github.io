@@ -69,21 +69,6 @@ export default function HeroSection() {
       id="home"
       className="relative w-full h-[100dvh] overflow-hidden bg-[#1A302B] snap-start"
     >
-      {/* <div className="absolute top-6 left-6 z-20 md:top-8 md:left-10">
-        <span className="font-display text-title-md text-[#E4463A]">J&G</span>
-      </div> */}
-
-      {/* <button
-        type="button"
-        aria-label="Open menu"
-        className="absolute top-6 right-6 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white md:top-8 md:right-10"
-      >
-        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-          <path d="M0 1H16" stroke="currentColor" strokeWidth="1.2" />
-          <path d="M0 6H16" stroke="currentColor" strokeWidth="1.2" />
-          <path d="M0 11H16" stroke="currentColor" strokeWidth="1.2" />
-        </svg>
-      </button> */}
 
       <div className="relative flex h-full w-full flex-col items-center justify-center px-4 pt-24 pb-8 md:pt-28 md:pb-12">
         <motion.div
@@ -133,11 +118,11 @@ export default function HeroSection() {
           style={{ y: foregroundY }}
           className="relative z-30 w-full max-w-xl shrink-0 mt-96 text-center text-white md:mt-100"
         >
-          <p className="font-display text-label-md tracking-[0.3em] text-white/80">
+          <p className="font-sans text-body-lg text-white">
             {copy.hero.eyebrow}
           </p>
 
-          <div className="mt-3 space-y-1 font-display italic text-headline-sm md:text-headline-md">
+          <div className="mt-3 space-y-1 font-display italic text-display-md">
             <p>{copy.hero.headline}</p>
             {/* <p>Saturday, 6th March 2027</p> */}
           </div>

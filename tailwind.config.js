@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         display: typographyTheme.fontFamily?.display || ['"Playfair Display"', 'serif'],
+        sans: typographyTheme.fontFamily?.sans || ['"Noto Sans"', 'sans-serif'],
       },
       fontSize: typographyTheme.fontSize || {},
     },
