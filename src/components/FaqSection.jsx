@@ -52,7 +52,7 @@ export default function FaqSection() {
               className="rounded-2xl border border-white/5 bg-black/25 p-6 md:p-8"
             >
               <h3 className="font-display text-lg font-semibold text-white md:text-xl">{faq.question}</h3>
-              <p className="mt-3 font-display text-sm text-white/80 md:text-base">{faq.answer}</p>
+              <p className="mt-3 font-sans text-sm text-white/80 md:text-base">{faq.answer}</p>
             </motion.div>
           ))}
         </motion.div>
