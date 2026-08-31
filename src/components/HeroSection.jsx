@@ -27,6 +27,12 @@ const HERO_LAYERS = [
   { id: 'fish-right', file: '8a Fish Right.png', alt: '', depth: 'mid' },
 ];
 
+// Full URLs for every hero layer, so the first-load loader can preload the
+// heavy artwork before it hands the screen over.
+export const HERO_IMAGE_SRCS = HERO_LAYERS.map(
+  (layer) => `${ASSET_PATH}/${encodeURIComponent(layer.file)}`,
+);
+
 const LAYER_STAGGER = 0.12;
 const LAYER_DURATION = 0.5;
 const textDelay = HERO_LAYERS.length * LAYER_STAGGER + LAYER_DURATION;

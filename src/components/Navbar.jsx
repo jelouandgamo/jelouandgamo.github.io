@@ -123,7 +123,7 @@ export default function Navbar() {
         initial={{ y: 0 }}
         animate={{ y: hidden ? '-100%' : 0 }}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
-        className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4"
+        className="fixed top-0 left-0 right-0 z-40 flex items-start justify-between pl-4 pr-6 py-4"
       >
         <button
           type="button"
@@ -134,7 +134,7 @@ export default function Navbar() {
           <img
             src={`${ASSET_PATH}/${encodeURIComponent('Navigation Logo.png')}`}
             alt="Jelou & Gamo monogram"
-            className="h-10 w-auto select-none"
+            className="h-20 w-auto select-none"
           />
         </button>
 

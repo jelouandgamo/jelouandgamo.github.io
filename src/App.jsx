@@ -9,6 +9,7 @@ import GallerySection from './components/GallerySection.jsx';
 import RsvpPage from './components/RsvpPage.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import Loader from './components/Loader.jsx';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ function HomePage() {
 export default function App() {
   return (
     <HashRouter>
+      <Loader />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
