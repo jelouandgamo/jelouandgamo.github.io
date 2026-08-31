@@ -35,7 +35,7 @@ function HomePage() {
 export default function App() {
   return (
     <HashRouter>
-      <Loader />
+      {/* <Loader /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
