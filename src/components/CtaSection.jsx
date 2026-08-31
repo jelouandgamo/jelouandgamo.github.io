@@ -88,19 +88,20 @@ export default function CtaSection({ onRsvpClick }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mt-8"
         />
-        <ScrollCue className="mb-4" />
 
         <motion.button
           type="button"
           onClick={downloadInvitation}
           variants={fadeUp}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mt-4 font-sans text-label-md text-white underline decoration-white/50 underline-offset-4 transition-colors hover:decoration-white"
+          className="font-sans text-label-md text-white underline decoration-white/50 underline-offset-4 transition-colors hover:decoration-white"
         >
           {copy.cta.downloadButton}
         </motion.button>
 
       </motion.div>
+
+      <ScrollCue className="absolute inset-x-0 bottom-6 z-10" />
     </section>
   );
 }
