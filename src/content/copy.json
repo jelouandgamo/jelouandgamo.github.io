@@ -25,12 +25,16 @@
     "intro": "We shared some of our most precious moments in the warm embrace of sunsets. We would love for you to dress in the warm colors we fell in love in.",
     "features": [
       {
-        "title": "Dressy Garden Casual",
-        "description": "Strike a balance between polish and relaxed with long dresses, flowing fabrics, soft and elegant silhouettes."
+        "title": "Ladies",
+        "description": "Long, flowing dresses in soft fabrics with elegant silhouettes."
       },
       {
-        "title": "Wear sunset colors",
-        "description": "Channel the golden hour glow with warm and vibrant colors, or slip into the comfortable elegance of floral motifs."
+        "title": "Gentlemen",
+        "description": "Smart casual: a button-down shirt, slacks, and dress shoes."
+      },
+      {
+        "title": "Sunset colors",
+        "description": "Warm and vibrant colors — think golden-hour skies."
       }
     ]
   },
