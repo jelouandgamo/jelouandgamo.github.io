@@ -45,7 +45,7 @@ export default function CtaSection({ onRsvpClick }) {
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="font-display italic text-headline-md md:text-display-sm"
+          className="font-display italic text-display-sm"
         >
           {copy.cta.date}
         </motion.p>
@@ -53,7 +53,7 @@ export default function CtaSection({ onRsvpClick }) {
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mt-1 font-display italic text-headline-sm md:text-headline-lg"
+          className="mt-1 font-display italic text-display-sm"
         >
           {copy.cta.venue}
         </motion.p>
