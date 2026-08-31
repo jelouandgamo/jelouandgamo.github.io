@@ -14,25 +14,18 @@ export default function CtaSection({ onRsvpClick }) {
   return (
     <section id="venue" className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#7A0C0C] px-6 snap-start">
       <motion.div
-        className="pointer-events-none absolute inset-0 m-auto w-[80vw] max-w-[600px] select-none md:w-[80vw]"
+        className="pointer-events-none absolute inset-0 flex select-none items-center justify-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        style={{
-            width: 'min(150vw, 100vh)',
-            // aspectRatio: '1116 / 1000',
-            // overflow: 'hidden',
-          }}
       >
-        <div className="flex h-[100dvh] items-center justify-center">
         <img
           src={`${ASSET_PATH}/${encodeURIComponent('Background Monogram.png')}`}
           alt=""
           aria-hidden="true"
-          className="w-full select-none "
+          className="w-[160vw] max-w-none shrink-0 select-none md:w-[50vw]"
         />
-        </div>
       </motion.div>
 
       <motion.div
