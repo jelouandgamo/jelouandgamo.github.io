@@ -6,7 +6,7 @@ import ScrollCue from './ScrollCue.jsx';
 const ASSET_PATH = '/assets/attire';
 const ICON_PATH = '/assets/Icons';
 
-const FEATURE_ICONS = ['dress icon.png', 'sunset icon.png'];
+const FEATURE_ICONS = ['dress icon.png', 'shirt icon.png', 'sunset icon.png'];
 
 const containerVariants = {
   hidden: {},
