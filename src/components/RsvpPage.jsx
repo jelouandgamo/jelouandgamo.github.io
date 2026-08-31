@@ -7,6 +7,16 @@ import DefaultButton from './DefaultButton.jsx';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Lower-case and strip diacritics so "Peña", "pena" and "PEÑA" all match the
+// normalized name columns in the database.
+function normalizeName(value) {
+  return value
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
 function isValidEmail(email) {
   return !email || EMAIL_RE.test(email.trim());
 }
@@ -76,11 +86,13 @@ function SearchStep({ onFound }) {
     setErrorMessage('');
 
     try {
+      const first = normalizeName(firstName).replace(/[,()]/g, ' ');
+      const last = normalizeName(lastName).replace(/[,()]/g, ' ');
       const { data: matches, error } = await supabase
         .from('guests')
         .select('*')
-        .ilike('first_name', `%${firstName.trim()}%`)
-        .ilike('last_name', `%${lastName.trim()}%`);
+        .or(`first_name_norm.ilike.%${first}%,nickname_norm.ilike.%${first}%`)
+        .ilike('last_name_norm', `%${last}%`);
 
       if (error) throw error;
 

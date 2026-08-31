@@ -12,7 +12,8 @@ insert into wedding_parties (party_name) values
   ('The Velaryon Party'),
   ('The Strong Party'),
   ('The Cole Party'),
-  ('The Dragonriders');
+  ('The Dragonriders'),
+  ('The Peña Party');
 
 insert into guests (party_id, first_name, last_name) values
   ((select id from wedding_parties where party_name = 'The Targaryen Party'), 'Rhaenyra', 'Targaryen'),
@@ -36,4 +37,12 @@ insert into guests (party_id, first_name, last_name) values
   ((select id from wedding_parties where party_name = 'The Dragonriders'), 'Rhaena', 'Targaryen'),
   ((select id from wedding_parties where party_name = 'The Dragonriders'), 'Aemond', 'Targaryen'),
   ((select id from wedding_parties where party_name = 'The Dragonriders'), 'Helaena', 'Targaryen'),
-  ((select id from wedding_parties where party_name = 'The Dragonriders'), 'Aegon', 'Targaryen');
+  ((select id from wedding_parties where party_name = 'The Dragonriders'), 'Aegon', 'Targaryen'),
+
+  ((select id from wedding_parties where party_name = 'The Peña Party'), 'Mariña', 'Peña'),
+  ((select id from wedding_parties where party_name = 'The Peña Party'), 'Íñigo', 'Peña');
+
+-- A few nicknames, so the search can be exercised against first_name OR nickname.
+update guests set nickname = 'Rogue Prince'        where first_name = 'Daemon'  and last_name = 'Targaryen';
+update guests set nickname = 'The Realm''s Delight' where first_name = 'Rhaenyra' and last_name = 'Targaryen';
+update guests set nickname = 'The Sea Snake'       where first_name = 'Corlys'   and last_name = 'Velaryon';

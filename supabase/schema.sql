@@ -6,6 +6,21 @@
 -- Required for gen_random_uuid()
 create extension if not exists "pgcrypto";
 
+-- Required for accent-insensitive search (Peña <-> Pena).
+create extension if not exists "unaccent";
+create extension if not exists "pg_trgm";
+
+-- unaccent() is only STABLE (it depends on a dictionary), so it can't be used
+-- directly in a generated column. Pinning the dictionary argument makes this
+-- wrapper safe to mark IMMUTABLE.
+create or replace function immutable_unaccent(text)
+returns text
+language sql
+immutable
+strict
+parallel safe
+as $$ select unaccent('unaccent', $1) $$;
+
 -- ----------------------------------------------------------------------------
 -- 1. Tables
 -- ----------------------------------------------------------------------------
@@ -42,8 +57,31 @@ begin
   end if;
 end $$;
 
+-- Optional nickname. The RSVP search matches the "first name" input against
+-- either first_name or nickname, so guests can find themselves by what they're
+-- actually called.
+alter table guests add column if not exists nickname text;
+
+-- Normalized (lower-cased, accent-stripped) copies of the searchable name
+-- fields. The RSVP search queries these so "Pena", "peña" and "PEÑA" all match
+-- the same guest. Kept in sync automatically as generated columns.
+alter table guests add column if not exists first_name_norm text
+  generated always as (lower(immutable_unaccent(first_name))) stored;
+alter table guests add column if not exists last_name_norm text
+  generated always as (lower(immutable_unaccent(last_name))) stored;
+alter table guests add column if not exists nickname_norm text
+  generated always as (lower(immutable_unaccent(coalesce(nickname, '')))) stored;
+
 create index if not exists guests_party_id_idx on guests (party_id);
 create index if not exists guests_name_idx on guests (last_name, first_name);
+
+-- Trigram indexes so the ILIKE '%term%' search stays fast as the list grows.
+create index if not exists guests_first_name_norm_trgm
+  on guests using gin (first_name_norm gin_trgm_ops);
+create index if not exists guests_last_name_norm_trgm
+  on guests using gin (last_name_norm gin_trgm_ops);
+create index if not exists guests_nickname_norm_trgm
+  on guests using gin (nickname_norm gin_trgm_ops);
 
 -- Keep updated_at current on every edit.
 create or replace function set_guests_updated_at()
