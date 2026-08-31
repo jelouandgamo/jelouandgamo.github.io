@@ -2,13 +2,30 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import copy from '../content/copy.json';
 import DefaultButton from './DefaultButton.jsx';
+import ScrollCue from './ScrollCue.jsx';
 
 const ASSET_PATH = '/assets/cta';
+const INVITE_PATH = `${ASSET_PATH}/invite`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
+
+// Save each invitation card in turn. The browser fires one download per
+// synthetic click; a small stagger keeps them from being merged or blocked.
+function downloadInvitation() {
+  copy.cta.inviteFiles.forEach((file, index) => {
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = `${INVITE_PATH}/${file.src}`;
+      link.download = file.name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }, index * 400);
+  });
+}
 
 export default function CtaSection({ onRsvpClick }) {
   return (
@@ -71,6 +88,18 @@ export default function CtaSection({ onRsvpClick }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mt-8"
         />
+
+        <motion.button
+          type="button"
+          onClick={downloadInvitation}
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mt-4 font-sans text-label-md text-white underline decoration-white/50 underline-offset-4 transition-colors hover:decoration-white"
+        >
+          {copy.cta.downloadButton}
+        </motion.button>
+
+        <ScrollCue className="mt-10" />
       </motion.div>
     </section>
   );

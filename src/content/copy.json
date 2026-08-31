@@ -11,7 +11,13 @@
       "as we celebrate our love",
       "amidst flowers, friends, & family"
     ],
-    "rsvpButton": "RSVP"
+    "rsvpButton": "RSVP",
+    "downloadButton": "Download Invitation",
+    "inviteFiles": [
+      { "src": "invite-1-cover.png", "name": "Jelou & Gamo — Invitation.png" },
+      { "src": "invite-2-dress-code.png", "name": "Jelou & Gamo — Dress Code.png" },
+      { "src": "invite-3-program.png", "name": "Jelou & Gamo — Program.png" }
+    ]
   },
   "attire": {
     "subtitle": "Dress Code",

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import copy from '../content/copy.json';
+import ScrollCue from './ScrollCue.jsx';
 
 const ASSET_PATH = '/assets/attire';
 const ICON_PATH = '/assets/Icons';
@@ -57,7 +58,7 @@ function FeatureList() {
 
 export default function AttireSection() {
   return (
-    <section id="attire" className="w-full bg-[#EFECE1] px-6 py-16 snap-start md:h-[100dvh] md:overflow-hidden md:py-14">
+    <section id="attire" className="relative w-full bg-[#EFECE1] px-6 pt-16 pb-20 snap-start md:h-[100dvh] md:overflow-hidden md:py-14">
       <div className="mx-auto grid w-full max-w-6xl gap-10 md:h-full md:grid-cols-2 md:gap-16">
         <motion.div
           initial="hidden"
@@ -108,6 +109,8 @@ export default function AttireSection() {
           <FeatureList />
         </div>
       </div>
+
+      <ScrollCue className="mt-12 md:absolute md:inset-x-0 md:bottom-6 md:mt-0" />
     </section>
   );
 }
