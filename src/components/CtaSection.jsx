@@ -88,6 +88,7 @@ export default function CtaSection({ onRsvpClick }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mt-8"
         />
+        <ScrollCue className="mb-4" />
 
         <motion.button
           type="button"
@@ -99,7 +100,6 @@ export default function CtaSection({ onRsvpClick }) {
           {copy.cta.downloadButton}
         </motion.button>
 
-        <ScrollCue className="mt-10" />
       </motion.div>
     </section>
   );
