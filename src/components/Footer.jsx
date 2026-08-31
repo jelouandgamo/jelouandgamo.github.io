@@ -28,12 +28,14 @@ export default function Footer() {
 
         <div className="space-y-1 text-xs tracking-wider text-[#EAE3D9]/70 md:text-sm">
           <p>
-            Designed by <span className="text-[#A3542B]">Gamo Tuaño</span>
+            Original Artwork and UI by <span className="text-[#A3542B]">Gamo Tuaño</span>
+            <span className="hidden md:inline"> | </span>
+            <br className="md:hidden" />
+            Developed by <span className="text-[#A3542B]">Jean Tiston</span>
           </p>
-          <p>
-            Developed by <span className="text-[#A3542B]">Jean Tiston</span> <br />
+          <p><a href="https://www.flaticon.com/free-icons/wedding" title="wedding icons">Icons created by <span className="text-[#A3542B]">Magnific - Flaticon</span></a></p>
             <sub>Development of this website is AI-assisted </sub>
-          </p>
+
         </div>
 
         <div className="my-4 h-[1px] w-24 bg-white/10" />
