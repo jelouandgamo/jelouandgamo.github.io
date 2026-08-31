@@ -1,6 +1,7 @@
 import React from 'react';
-import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import HeroSection from './components/HeroSection.jsx';
+import HeroSectionV2 from './components/HeroSectionV2.jsx';
 import ProgramFlowSection from './components/ProgramFlowSection.jsx';
 import CtaSection from './components/CtaSection.jsx';
 import AttireSection from './components/AttireSection.jsx';
@@ -13,10 +14,14 @@ import Loader from './components/Loader.jsx';
 
 function HomePage() {
   const navigate = useNavigate();
+  // const location = useLocation();
+  // // Visit /#/?hero=v2 to preview the tilt/gyro hero.
+  // const useHeroV2 = new URLSearchParams(location.search).get('hero') === 'v2';
 
   return (
     <main>
-      <HeroSection />
+      <HeroSectionV2 />
+      {/* {useHeroV2 ? <HeroSectionV2 /> : <HeroSection />} */}
       <CtaSection onRsvpClick={() => navigate('/rsvp')} />
       <ProgramFlowSection />
       <AttireSection />

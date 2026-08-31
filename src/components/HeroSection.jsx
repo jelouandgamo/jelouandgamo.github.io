@@ -2,29 +2,33 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import copy from '../content/copy.json';
 
-const ASSET_PATH = '/assets/hero2';
+export const ASSET_PATH = '/assets/hero2';
 
 // All hero2 layers share the same 3840x2160 canvas (confirmed against the
 // source PNGs), so stacking them at identical size/position reproduces the
 // composite exactly - no manual coordinate guessing needed. Order matches
 // the exported stacking order (back to front).
-const HERO_LAYERS = [
-  { id: 'monogram', file: 'monogram.svg', alt: '', depth: 'slow' },
-  { id: 'flower-pink-rt', file: '2a Flower Pink Right Top.png', alt: '', depth: 'mid' },
-  { id: 'flower-white-rt', file: '2b Flower White Right Top.png', alt: '', depth: 'mid' },
-  { id: 'flower-yellow-rt', file: '2c Flower Yellow Right Top.png', alt: '', depth: 'mid' },
-  { id: 'flower-red-lt', file: '3a Flower Red Left Top.png', alt: '', depth: 'mid' },
-  { id: 'flower-pink-lt', file: '3b Flower Pink Left Top.png', alt: '', depth: 'mid' },
-  { id: 'vesta', file: '4a Vesta.png', alt: 'Vesta the cat', depth: 'mid' },
-  { id: 'couple', file: '4b JelouGamo.png', alt: 'Jelou and Gamo illustrated together', depth: 'mid' },
-  { id: 'flower-white1-rb', file: '5a Flower White 1 Right Bottom.png', alt: '', depth: 'mid' },
-  { id: 'flower-white2-rb', file: '5b Flower White 2 Right Bottom.png', alt: '', depth: 'mid' },
-  { id: 'flower-yellow-rb', file: '5c Flower Yellow Right Bottom.png', alt: '', depth: 'mid' },
-  { id: 'flower-pink-rb', file: '5d Flower Pink Right Bottom.png', alt: '', depth: 'mid' },
-  { id: 'flower-red-lb', file: '6a Flower Red Left Bottom.png', alt: '', depth: 'mid' },
-  { id: 'fish-left-1', file: '7a Fish Left 1.png', alt: '', depth: 'mid' },
-  { id: 'fish-left-2', file: '7b Fish Left 2.png', alt: '', depth: 'mid' },
-  { id: 'fish-right', file: '8a Fish Right.png', alt: '', depth: 'mid' },
+//
+// `parallax` is the max pixel offset a layer drifts under pointer / gyro
+// movement in HeroSectionV2 (0 = pinned). Back layers drift least, the
+// foreground fish drift most, which reads as depth.
+export const HERO_LAYERS = [
+  { id: 'monogram', file: 'monogram.svg', alt: '', depth: 'slow', parallax: 6 },
+  { id: 'flower-pink-rt', file: '2a Flower Pink Right Top.png', alt: '', depth: 'mid', parallax: 16 },
+  { id: 'flower-white-rt', file: '2b Flower White Right Top.png', alt: '', depth: 'mid', parallax: 18 },
+  { id: 'flower-yellow-rt', file: '2c Flower Yellow Right Top.png', alt: '', depth: 'mid', parallax: 20 },
+  { id: 'flower-red-lt', file: '3a Flower Red Left Top.png', alt: '', depth: 'mid', parallax: 16 },
+  { id: 'flower-pink-lt', file: '3b Flower Pink Left Top.png', alt: '', depth: 'mid', parallax: 18 },
+  { id: 'vesta', file: '4a Vesta.png', alt: 'Vesta the cat', depth: 'mid', parallax: 10 },
+  { id: 'couple', file: '4b JelouGamo.png', alt: 'Jelou and Gamo illustrated together', depth: 'mid', parallax: 7 },
+  { id: 'flower-white1-rb', file: '5a Flower White 1 Right Bottom.png', alt: '', depth: 'mid', parallax: 24 },
+  { id: 'flower-white2-rb', file: '5b Flower White 2 Right Bottom.png', alt: '', depth: 'mid', parallax: 26 },
+  { id: 'flower-yellow-rb', file: '5c Flower Yellow Right Bottom.png', alt: '', depth: 'mid', parallax: 28 },
+  { id: 'flower-pink-rb', file: '5d Flower Pink Right Bottom.png', alt: '', depth: 'mid', parallax: 26 },
+  { id: 'flower-red-lb', file: '6a Flower Red Left Bottom.png', alt: '', depth: 'mid', parallax: 24 },
+  { id: 'fish-left-1', file: '7a Fish Left 1.png', alt: '', depth: 'mid', parallax: 40 },
+  { id: 'fish-left-2', file: '7b Fish Left 2.png', alt: '', depth: 'mid', parallax: 46 },
+  { id: 'fish-right', file: '8a Fish Right.png', alt: '', depth: 'mid', parallax: 44 },
 ];
 
 // Full URLs for every hero layer, so the first-load loader can preload the
