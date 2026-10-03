@@ -66,7 +66,7 @@
     "subtitle": "RSVP",
     "search": {
       "title": "Find Your Invitation",
-      "intro": "Enter your name as it appears on your invitation to find your party.",
+      "intro": "Enter your name to find your party.",
       "firstNameLabel": "First Name",
       "lastNameLabel": "Last Name",
       "button": "Search Invitation",
@@ -132,10 +132,6 @@
       {
         "question": "Is there parking available?",
         "answer": "The venue has provisions for 50 parking slots."
-      },
-      {
-        "question": "Where can i stay?",
-        "answer": "The Citywalk Suites is right next to the venue."
       },
       {
         "question": "Regarding gifts?",
